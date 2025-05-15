@@ -6,7 +6,7 @@ import random
 LOWER=["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 UPPER=["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 DIGITS=["0","1","2","3","4","5","6","7","8","9"] 
-SPECIAL=["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "[", "]", "{", "}", "|", ";", ":", """, """, ",", ".", "<", ">", "?", "/", "`", "~", " "]
+SPECIAL=["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "[", "]", "{", "}", "|", ";", ":", """, """, ",", ".", "<", ">", "?", "/", "`", "~"]
     
 
 
@@ -14,7 +14,7 @@ def password_suggestion():
     characters = LOWER + UPPER + DIGITS + SPECIAL
     password = ''
     for i in range(0, 17):
-        password += characters[random.randint(0, 92)]
+        password += characters[random.randint(0, 93)]
     
     message = 'Strong passward should contain:  UPPER, lower, digit, special character, and more than 15 in length.'
     print(message)
@@ -77,13 +77,13 @@ def password_strength(password, min_length=10, strong_length=16):
 
 
 def main():
-    password = input("Enter a password or q|Q to quit:  ")
+    password = input("Enter a password or ( q|Q to quit ):  ")
     while password[0].lower() != 'q':
         strength = password_strength(password)
         print("Password Strength: {0}".format(strength))
         if strength < 5:
             password_suggestion()
-        password = input("Enter a password or q|Q to quit:  ")
+        password = input("Enter a password or ( q|Q to quit ):  ")
 
         
 if __name__ == "__main__":
