@@ -8,27 +8,26 @@ SPECIAL=["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "
     
 
 def word_in_file(word, filename, case_sensitive=False):
-    with open(filename, 'r', encoding='utf-8') as file:
+    with open(filename, 'r') as file:
         for line in file:
             if case_sensitive:
-                if word == line:
+                if word == line.strip():
                     return True
             else:
-                if word.lower() == line.lower():
+                if word.lower() == line.strip().lower():
                     return True 
     return False
 
 
 def word_has_character(word, character_list):
-    for ch in range(0, len(word)):
-        if ch in character_list:
+    for i in range(0, len(word)):
+        if word[i] in character_list:
             return True
     return False
 
 
 def word_complexity(word):
     complexity = 0
-
     if word_has_character(word, LOWER):
         complexity += 1
     if word_has_character(word, UPPER):
@@ -47,25 +46,27 @@ def password_strength(password, min_length=10, strong_length=16):
         print("Password is a dictionary word and is not secure.")
         return 0
     
-    if word_in_file(password, 'wordlist.txt', True):
+    if word_in_file(password, 'toppasswords.txt', True):
         print("Password is a commonly used password and is not secure.")
         return 0
     
-    if len(password) < len(min_length):
+    if len(password) < min_length:
         print("Password is too short and is not secure.")
         return 1
+
         
-    if len(password) >= len(strong_length):
+    if len(password) >= strong_length:
         print("Password is long, length trumps complexity this is a good password")
         return 5
     
-    return word_complexity(password)
+    return word_complexity(password) + 1
 
 
 def main():
     password = input("Enter a password or q|Q to quit:  ")
     while password[0].lower() != 'q':
-        print("Password Strength: {0}".format(password_strength(password)))
+        strength = password_strength(password)
+        print("Password Strength: {0}".format(strength))
         password = input("Enter a password or q|Q to quit:  ")
 
         
