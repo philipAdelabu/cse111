@@ -1,5 +1,8 @@
-# For creativity, another function is defined to suggest a strong password in case the user enter a weak one.
-# The name of the funtion is password_suggestion.
+# For creativity, I defined another function to suggest a strong password in case the user enter a weak one.
+# The name of the funtion is password_suggestion().
+#  The creativity function is found on line 70 -80, just before the main() function.
+# 
+
 
 import random
 
@@ -10,19 +13,8 @@ SPECIAL=["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", "
     
 
 
-def password_suggestion():
-    characters = LOWER + UPPER + DIGITS + SPECIAL
-    password = ''
-    for i in range(0, 17):
-        password += characters[random.randint(0, 93)]
-    
-    message = 'Strong passward should contain:  UPPER, lower, digit, special character, and more than 15 in length.'
-    print(message)
-    print("Eg: {0}".format(password))
-    
-
 def word_in_file(word, filename, case_sensitive=False):
-    with open(filename, 'r') as file:
+    with open(filename, 'r', encoding="utf-8") as file:
         for line in file:
             if case_sensitive:
                 if word == line.strip():
@@ -74,6 +66,18 @@ def password_strength(password, min_length=10, strong_length=16):
         return 5
     
     return word_complexity(password) + 1
+
+
+# password suggestion function
+def password_suggestion():
+    characters = LOWER + UPPER + DIGITS + SPECIAL
+    password = ''
+    for i in range(0, 17):
+        password += characters[random.randint(0, 92)]
+    
+    message = 'Strong passward should contain:  UPPER, lower, digit, special character, and more than 15 in length.'
+    print(message)
+    print("Eg: {0}".format(password))
 
 
 def main():
