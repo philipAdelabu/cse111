@@ -9,18 +9,30 @@ CSE 111 Proposal for a Student Chosen Program
     answer each of the following questions to the best of your
     knowledge.)
 
-1. What is the title of your program?
+1. What is the title of your program? 
+   Web Crawling and Scraping
 
 2. What real-world problem will your program address or help to solve?
+   A web crawler is more a advanced web scraper. 
+   It follows links across pages, extracting and possibly storing content from each page it visits.
+   It avoids revisiting URLs and obeys the domain limit.
+    
+    It will help to know how to mine data or information from the web or internet.
+    It will be useful where data or information is needed and that can be found freely on the internet.
 
 3. What will you learn from developing this program?
+    I will learn how to create and application using python to fetch data or mine data from the internet.
+    I will definitely learn how to work better with third part modules and API to manage complex data.
 
 4. What Python modules will your program use?
+    requests, csv, panda, os, pytest, BeautifulSoup, time
 
     (Some examples are: csv, datetime, functools, matplotlib, math,
     pandas, pytest, random, requests, and tkinter.)
 
 5. List the names of functions you will need?
+
+     get_file(), save_file(), url_link(), craw(), is_valid_url();
 
     (Remember that the most reusable functions don't get user input and
     don't print results but instead have parameters and return a result.
@@ -33,6 +45,8 @@ CSE 111 Proposal for a Student Chosen Program
     a result. Therefore, you should write most of your program functions
     to have parameters and return a result.)
 
-6. List the names of the test functions you will write.
+6. List the names of the test functions you will write. 
+    test_get_file(), test_url_link(), test_word(), test_craw(), test_is_valid_url()
+    
 
  
